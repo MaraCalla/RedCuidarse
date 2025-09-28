@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidar(se) - Página de Inicio</title>
+    <link rel="stylesheet" href="inicio.css"> <!-- Aquí puedes enlazar tu archivo CSS para los estilos -->
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/IMAGENESCU/logopng.jpg" alt="Imagen de la organización">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item">Inicio</a></li>
+                <li><a href="nosotros.html" class="nav-item">Nosotros</a></li>
+                <li><a href="comunidad.html" class="nav-item">Comunidad</a></li>
+                <li><a href="herramientas.html" class="nav-item">Herramientas</a></li>
+                <li><a href="emergencias.html" class="nav-item">Emergencias</a></li>
+            </ul>
+        </nav>
+    </header>
+
+ <!-- Sección de resumen de la organización -->
+<section class="intro">
+    <div class="text">
+        <h1>Bienvenidos a Cuidar(se)</h1> <!-- El título está arriba -->
+        <p>Somos una organización juvenil comprometida con el cuidado de la salud mental. Estamos aquí para ofrecerte herramientas y recursos que te ayudarán a cuidar de ti mismo.</p>
+    </div>
+    <img src="/IMAGENESCU/nosotros.png" alt="Imagen de la organización">
+</section>
+
+<!-- Cuadro de Padlet para la Frase del Día -->
+<section class="padlet">
+            <div class="padlet-embed">
+                <iframe src="https://padlet.com/padlets/27c2823vx7jbze9u/embeds/preview_embed" 
+                        style="width:100%;height:100%;display:block;padding:0;margin:0" 
+                        frameborder="0">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Carrusel de Novedades -->
+<section class="novedades">
+    <h2>Novedades</h2>
+    <div class="carousel-container">
+        <!-- Carrusel -->
+        <div class="carousel">
+            <!-- Publicación 1 -->
+            <div class="carousel-item">
+                <div class="carousel-image">
+                    <img src="/IMAGENESCU/webinarespañol.jpg" alt="Publicación 1">
+                </div>
+                <div class="carousel-description">
+                    <a href="https://www.instagram.com/p/DOpNiMtDcz0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="view-more-button" target="_blank">Ver más</a>
+                </div>
+            </div>
+
+            <!-- Publicación 2 -->
+            <div class="carousel-item">
+                <div class="carousel-image">
+                    <img src="/IMAGENESCU/webinaringles.jpg" alt="Publicación 2">
+                </div>
+                <div class="carousel-description">
+                    <a href="https://www.instagram.com/p/DOpNiMtDcz0/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="view-more-button" target="_blank">Ver más</a>
+                </div>
+            </div>
+
+            <!-- Agrega más publicaciones aquí según lo necesites -->
+        </div>
+
+        <!-- Controles del Carrusel -->
+        <button class="carousel-prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+</section>
+
+<script src="carousel.js"></script>
+<!-- Formulario de Feedback (Google Forms) -->
+<section class="feedback">
+    <div class="feedback-content">
+        <!-- Columna izquierda: Imagen -->
+        <div class="left-column">
+            <img src="/IMAGENESCU/padlet.png" alt="Imagen de la organización" class="info-image">
+        </div>
+
+        <!-- Columna derecha: Formulario -->
+        <div class="right-column">
+            <h2>Califica tu experiencia con Cuidarse</h2>
+            <form action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" method="POST">
+                <div class="rating">
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1" class="star">&#9733;</label>
+
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2" class="star">&#9733;</label>
+
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3" class="star">&#9733;</label>
+
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4" class="star">&#9733;</label>
+
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5" class="star">&#9733;</label>
+                </div>
+
+                <textarea name="entry.XXXXXXXX" id="comment" rows="4" placeholder="Escribe tu comentario aquí..."></textarea>
+                <br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="contact-info">
+            <p>Contacto: <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></p>
+            <p>Síguenos en nuestras redes sociales:</p>
+            <a href="https://instagram.com/tu-usuario" target="_blank">Instagram</a>
+        </div>
+        <div class="rights">
+            <p>&copy; 2025 Cuidar(se). Todos los derechos reservados.</p>
+            <p>Organizaciones Aliadas: [Lista de organizaciones]</p>
+        </div>
+    </footer>
+
+    <script src="incio.js"></script>
+
+</body>
+</html>
