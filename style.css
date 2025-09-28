@@ -285,70 +285,7 @@ nav {
     text-align: center;
 
 }
-/* Estilo de las estrellas */
-.rating {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    direction: rtl; /* Cambia la dirección de los elementos a derecha a izquierda */
-}
 
-.rating input[type="radio"] {
-    display: none; /* Oculta los botones de radio */
-}
-
-.star {
-    font-size: 80px; /* Tamaño de las estrellas */
-    color: #ADD8E6; /* Celeste claro por defecto */
-    cursor: pointer;
-    transition: color 0.3s ease; /* Transición suave para el cambio de color */
-    margin-left: 5px; /* Espacio entre las estrellas */
-}
-
-/* Cambiar color cuando el ratón pasa sobre la estrella */
-.rating input[type="radio"]:hover ~ .star,
-.rating input[type="radio"]:checked ~ .star {
-    color: #5bc0de; /* Celeste más oscuro cuando se selecciona o pasa el ratón */
-}
-
-/* Cambiar color de las estrellas al ser seleccionadas */
-.rating input[type="radio"]:checked ~ .star {
-    color: #5bc0de; /* Celeste más oscuro */
-}
-
-/* Estilo para el contenedor de las estrellas */
-.rating input[type="radio"]:checked {
-    background-color: #5bc0de; /* Fondo celeste oscuro */
-}
-
-.comments {
-    width: 100%; /* Asegura que el cuadro ocupe todo el ancho disponible */
-    padding: 20px; /* Aumenta el espacio dentro del cuadro */
-    font-size: 18px; /* Hace el texto más grande */
-    border-radius: 8px; /* Bordes redondeados */
-    border: 2px solid #004d79; /* Bordes del cuadro con el color #004d79 */
-    resize: vertical; /* Permite que el cuadro se redimensione verticalmente */
-    margin-bottom: 15px; /* Espacio inferior */
-    background-color: #f1f1f1; /* Fondo claro para el cuadro */
-    color: #004d79; /* Color del texto dentro del cuadro */
-}
-
-/* Estilo al hacer hover sobre el cuadro de comentarios */
-.textarea:hover {
-    border-color: #00B5CC; /* Cambio de color al pasar el ratón */
-}
-
-
-.submit-btn {
-    background-color: #004d79;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-}
 
 .submit-btn:hover {
     background-color: #0779bb;
