@@ -1,15 +1,11 @@
 
 // Menú móvil
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const mobileMenu = document.querySelector('.mobile-menu');
-const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+const navLinks = document.querySelector('.nav-links');
 
-// Función para abrir y cerrar el menú móvil
+// Función para mostrar y ocultar el menú
 mobileMenuToggle.addEventListener('click', () => {
-    mobileMenuToggle.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    // Deshabilita el scroll del body cuando el menú está activo
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+    navLinks.classList.toggle('active'); // Alterna la clase 'active' para mostrar/ocultar el menú
 });
 
 // Cierra el menú cuando se hace clic en un enlace

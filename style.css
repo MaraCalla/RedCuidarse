@@ -87,15 +87,42 @@ nav {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+/* Estilo para el icono de hamburguesa */
+.mobile-menu-toggle {
+    display: none; /* Ocultar por defecto */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
 
 @media (max-width: 768px) {
     .nav-links {
-        flex-direction: column;  /* Asegura que los enlaces se apilen en pantallas pequeñas */
-        gap: 1rem; /* Menor espacio entre los enlaces */
+     display: none; /* Ocultar el menú en pantallas pequeñas */
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .nav-links.active {
+        display: flex; /* Mostrar el menú cuando se active */
     }
 
-    .nav-links a {
-        font-size: 1.2rem; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    /* Mostrar el icono de hamburguesa en pantallas pequeñas */
+    .mobile-menu-toggle {
+        display: flex; /* Mostrar el icono */
     }
 }
 
@@ -285,14 +312,14 @@ nav {
 }
 
 .feedback-image {
-    width: 100%;
+    width: 500px;
     height: auto;
     border-radius: 8px;
 }
 
 /* Ajuste del iframe de Google Forms */
 .feedback-right iframe {
-    width: 100%; /* 100% de ancho */
+    width: 600px; /* 100% de ancho */
     height: 450px; /* Altura del iframe */
     border: none;
 }
