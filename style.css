@@ -1,16 +1,16 @@
 /* Personalización de la paleta de colores */
 :root {
-    --primary-color: #0699DB; /* Medium text */
-    --secondary-color: #00BEEA; /* Bright text */
-    --accent-color: #0699DB;; /* Aa */
-    --accent-pink: #c2f0fd; /* Light text */
-    --accent-cyan: #8fffd8; /* Aa */
-    --text-primary: #477ABD; /* Dark text */
-    --text-secondary: #545454; /* Black text */
-    --text-light: #EAEAEA; /* White text */
-    --bg-primary: #edf0ff; /* Light background */
-    --bg-secondary: #8fffd8; /* Aa */
-    --bg-dark: #004d79; /* Aa */
+    --primary-color: #0699DB;
+    --secondary-color: #00BEEA;
+    --accent-color: #0699DB;
+    --accent-pink: #c2f0fd;
+    --accent-cyan: #8fffd8;
+    --text-primary: #477ABD;
+    --text-secondary: #545454;
+    --text-light: #EAEAEA;
+    --bg-primary: #edf0ff;
+    --bg-secondary: #8fffd8;
+    --bg-dark: #004d79;
     --bg-card: rgba(255, 255, 255, 0.95);
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -24,6 +24,7 @@
     --glass: rgba(255, 255, 255, 0.15);
     --glass-border: rgba(255, 255, 255, 0.2);
 }
+
 /* Estilo general */
 * {
     margin: 0;
@@ -39,7 +40,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Header */
+/* Barra de Navegación */
 header {
     background: rgba(255, 255, 255, 0.95);
     color: rgb(37, 37, 37);
@@ -57,8 +58,8 @@ nav {
 }
 
 .logo img {
-    width: 80px;  /* Ajusta el tamaño del logo a 80px de ancho */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 80px;
+    height: auto;
 }
 
 .nav-links {
@@ -124,99 +125,57 @@ nav {
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    animation: fadeInUp 1s ease-out;
 }
 
 .hero p {
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    opacity: 0.9;
-    animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 /* Sección de resumen de la organización */
 .intro {
-    display: flex; /* Flexbox para la alineación horizontal */
-    flex-direction: row; /* Los elementos principales están en una fila (texto + imagen) */
-    align-items: center; /* Alinea verticalmente los elementos */
-    justify-content: space-between; /* Espacio entre el texto y la imagen */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 2rem;
 }
 
-/* Contenedor del texto */
 .intro .text {
-    flex: 1; /* El texto ocupa la mitad del contenedor */
-    margin-right: 2rem; /* Espacio entre el texto y la imagen */
+    flex: 1;
+    margin-right: 2rem;
 }
 
-/* Estilo para el encabezado (Bienvenidos) */
 .intro h1 {
     color: #004d79;
     font-size: 2.0rem;
-    margin-bottom: 1rem; /* Espacio debajo del título */
-    text-align: center; /* Asegura que el título esté alineado al centro*/
-}
-
-/* Estilo para la imagen de la derecha */
-.intro img {
-    max-width: 50%; /* La imagen ocupa el 50% del contenedor */
-    border-radius: 10px;
-}
-/* Sección de Padlet */
-.padlet {
-    display: flex; /* Organiza los elementos en una fila */
-    justify-content: space-between; /* Espacia las columnas */
-    padding: 2rem;
-    background-color:rgb(229, 237, 239); /* Agrega color de fondo a la sección */
-    border-radius: 10px; /* Bordes redondeados para la sección */
-}
-
-/* Contenedor para el contenido del Padlet */
-.padlet-content {
-    display: flex;
-    width: 100%;
-}
-
-/* Columna izquierda: Imagen, título y párrafo */
-.left-column {
-    flex: 1; /* Ocupa el 50% del contenedor */
-    margin-right: 2rem; /* Espacio entre las columnas */
-}
-
-.image-text {
-    display: flex; /* Alinea la imagen y el texto en una fila */
-    align-items: center;
-    flex-direction: column;
-}
-
-.info-image {
-    max-width: 60%;
-    height: auto;
-    border-radius: 10px; /* Bordes redondeados para la imagen */
-    margin-bottom: 1rem; /* Espacio debajo de la imagen */
-}
-
-.text-content {
+    margin-bottom: 1rem;
     text-align: center;
 }
 
-.text-content h2 {
-    color: #cdecfa;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.intro img {
+    max-width: 50%;
+    border-radius: 10px;
 }
 
-
+/* Sección de Padlet */
+.padlet {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color:rgb(229, 237, 239);
+    border-radius: 10px;
+}
 
 .padlet-embed {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     width: 100%;
-    height: 400px; /* Ajusta la altura del iframe */
+    height: 400px;
     box-sizing: border-box;
-    overflow: hidden;
 }
-/* Estilo general para el carrusel */
+
+/* Carrusel de Novedades */
 .novedades {
     margin: 3rem 0;
     background-color: #ffffff;
@@ -226,7 +185,8 @@ nav {
 }
 
 .novedades h2 {
-    color: var(--accent-color);
+    color: #004d79;
+    font-size: 2.0rem;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -244,240 +204,12 @@ nav {
 }
 
 .carousel-item {
-    width: 30%;  /* Tamaño reducido de las publicaciones */
-    margin-right: 1rem;  /* Espaciado entre publicaciones */
+    width: 30%;
+    margin-right: 1rem;
     background-color: #fff;
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    text-align: center;
-    border: 2px solid #f0f0f0;  /* Borde suave alrededor de la publicación */
-}
-
-.carousel-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.carousel-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.carousel-description {
-    padding: 1rem 0;
-}
-
-.view-more-button {
-    padding: 10px 20px;
-    background-color: var(--bg-dark);
-    color: rgb(244, 242, 242);
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.view-more-button:hover {
-    background-color: var(--accent-color);
-}
-
-/* Controles del carrusel */
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(83, 119, 147, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.carousel-prev {
-    left: 5px;  /* Mueve la flecha más cerca del borde izquierdo */
-}
-
-.carousel-next {
-    right: 5px;  /* Mueve la flecha más cerca del borde derecho */
-}
-
-.carousel-prev:hover, .carousel-next:hover {
-    background-color: rgba(130, 172, 246, 0.8);
-}
-
-/* Estilos para la sección del Feedback */
-.feedback {
-    display: flex; /* Usamos flexbox para organizar la imagen y el formulario */
-    justify-content: space-between; /* Espacio entre la imagen y el formulario */
-    align-items: center; /* Alineación vertical de los elementos */
-    margin: 2rem 0;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Columna izquierda: Imagen */
-.left-column {
-    flex: 1; /* La imagen ocupa la mitad del contenedor */
-    margin-right: 2rem; /* Espacio entre la imagen y el formulario */
-}
-
-.info-image {
-    width: 100%; /* La imagen ocupa el 100% de la columna */
-    max-width: 350px; /* Máximo tamaño de la imagen */
-    height: auto;
-    border-radius: 10px; /* Bordes redondeados para la imagen */
-}
-
-/* Columna derecha: Formulario */
-.right-column {
-    flex: 1; /* El formulario ocupa la otra mitad del contenedor */
-}
-
-/* Estilo del título */
-.right-column h2 {
-    text-align: center;
-    color: var(--bg-dark);
-    margin-bottom: 1rem;
-}
-
-/* Estilo para las estrellas de calificación */
-.rating {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.rating input {
-    display: none; /* Ocultamos los radio buttons */
-}
-
-.rating label {
-    font-size: 3rem; /* Tamaño grande de las estrellas */
-    color: #d4af37; /* Color dorado de las estrellas */
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.rating input:checked ~ label {
-    color: #ffcc00; /* Color dorado cuando se selecciona */
-}
-
-.rating label:hover,
-.rating label:hover ~ label {
-    color: #ffcc00; /* Cambia al pasar el mouse */
-}
-
-/* Estilo para el cuadro de comentarios */
-textarea {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: none;
-    font-size: 1rem;
-}
-
-/* Estilo para el botón de enviar */
-.feedback button {
-    background-color: var(--bg-dark);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* El botón ocupa el ancho completo */
-    font-size: 1rem;
-}
-
-.feedback button:hover {
-    background-color: var(--accent-color);
-}
-
-/* Estilos responsivos para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .feedback {
-        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
-        align-items: center;
-    }
-
-    .left-column, .right-column {
-        margin-right: 0; /* Elimina el margen entre columnas en pantallas pequeñas */
-        margin-bottom: 1rem; /* Espacio entre las columnas en móviles */
-    }
-
-    .info-image {
-        max-width: 80%; /* Ajusta el tamaño de la imagen en móviles */
-    }
-
-    .right-column {
-        width: 100%; /* El formulario ocupa el 100% del ancho */
-    }
-}
-
-
-/* Estilos para las flechas del carrusel */
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(84, 129, 164, 0.5);
-    color: white;
-    border: none;
-    padding: 12px; /* Tamaño adecuado de las flechas */
-    font-size: 30px; /* Flechas más grandes */
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10; /* Asegura que las flechas estén por encima de las publicaciones */
-}
-/* Flecha hacia la izquierda */
-.carousel-prev {
-    left: 10px;  /* Mueve la flecha hacia la izquierda */
-    transform: translateY(-50%) rotate(0deg);  /* Gira la flecha a la izquierda (hacia adentro) */
-}
-
-/* Flecha hacia la derecha */
-.carousel-next {
-    right: 10px;  /* Mueve la flecha hacia la derecha */
-    transform: translateY(-50%) rotate(0deg);  /* Mantén la flecha en su posición natural */
-}
-
-/* Efecto hover en las flechas */
-.carousel-prev:hover, .carousel-next:hover {
-    background-color: rgba(76, 144, 237, 0.8); /* Cambia el fondo al pasar el mouse */
-}
-
-/* Estilo para el contenedor del carrusel */
-.carousel-container {
-    position: relative;
-    width: 80%; /* Ajuste para el tamaño del carrusel */
-    margin: auto;
-    overflow: hidden;
-}
-
-/* Carrusel en sí */
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Elementos dentro del carrusel */
-.carousel-item {
-    width: 30%; /* Ajustamos el tamaño de las publicaciones */
-    margin-right: 1rem; /* Espacio entre las publicaciones */
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
     cursor: pointer;
     text-align: center;
     border: 2px solid #f0f0f0;
@@ -494,10 +226,6 @@ textarea {
     border-radius: 10px;
 }
 
-.carousel-description {
-    padding: 1rem 0;
-}
-
 .view-more-button {
     padding: 10px 20px;
     background-color: var(--bg-dark);
@@ -505,11 +233,145 @@ textarea {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    display: inline-block;
 }
 
 .view-more-button:hover {
     background-color: var(--accent-color);
+}
+
+/* Feedback Section */
+.feedback {
+    background-color: #f5f5f5;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.feedback-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.feedback-left {
+    flex: 1;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.feedback-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.feedback-right {
+    flex: 1;
+    padding-left: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(24, 40, 210, 0.1);
+}
+
+.feedback-right h2 {
+    color: #004d79;
+    font-size: 2.0rem;
+    margin-bottom: 15px;
+    text-align: center;
+
+}
+/* Estilo de las estrellas */
+.rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    direction: rtl; /* Cambia la dirección de los elementos a derecha a izquierda */
+}
+
+.rating input[type="radio"] {
+    display: none; /* Oculta los botones de radio */
+}
+
+.star {
+    font-size: 80px; /* Tamaño de las estrellas */
+    color: #ADD8E6; /* Celeste claro por defecto */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+    margin-left: 5px; /* Espacio entre las estrellas */
+}
+
+/* Cambiar color cuando el ratón pasa sobre la estrella */
+.rating input[type="radio"]:hover ~ .star,
+.rating input[type="radio"]:checked ~ .star {
+    color: #5bc0de; /* Celeste más oscuro cuando se selecciona o pasa el ratón */
+}
+
+/* Cambiar color de las estrellas al ser seleccionadas */
+.rating input[type="radio"]:checked ~ .star {
+    color: #5bc0de; /* Celeste más oscuro */
+}
+
+/* Estilo para el contenedor de las estrellas */
+.rating input[type="radio"]:checked {
+    background-color: #5bc0de; /* Fondo celeste oscuro */
+}
+
+.comments {
+    width: 100%; /* Asegura que el cuadro ocupe todo el ancho disponible */
+    padding: 20px; /* Aumenta el espacio dentro del cuadro */
+    font-size: 18px; /* Hace el texto más grande */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 2px solid #004d79; /* Bordes del cuadro con el color #004d79 */
+    resize: vertical; /* Permite que el cuadro se redimensione verticalmente */
+    margin-bottom: 15px; /* Espacio inferior */
+    background-color: #f1f1f1; /* Fondo claro para el cuadro */
+    color: #004d79; /* Color del texto dentro del cuadro */
+}
+
+/* Estilo al hacer hover sobre el cuadro de comentarios */
+.textarea:hover {
+    border-color: #00B5CC; /* Cambio de color al pasar el ratón */
+}
+
+
+.submit-btn {
+    background-color: #004d79;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #0779bb;
+}
+
+@media (max-width: 768px) {
+    .feedback-container {
+        flex-direction: column;
+    }
+
+    .feedback-left, .feedback-right {
+        flex: 1 1 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .feedback-right h2 {
+        font-size: 20px;
+    }
+
+    .rating .star {
+        font-size: 20px;
+    }
 }
 
 /* Footer */
@@ -531,66 +393,56 @@ footer a:hover {
     color: #14b8a6;
 }
 
-footer .contact-info {
-    margin-bottom: 1.5rem;
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
 }
 
-footer .rights {
+.footer-left {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left;
+}
+.social-icon {
+    width: 100px;  /* Tamaño más pequeño para el ícono social */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-top: 10px;
+}
+
+
+.footer-center {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-right {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+/* Asegurándote de que el contenedor principal esté configurado para centrar el contenido */
+.footer-center {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100%; /* Asegura que ocupe todo el espacio disponible */
+}
+.footer-center .heart-shape {
+    width: 200px;
+    height: 200px;
+    background-image: url('IMAGENESCU/slogan.png');
+    background-size: cover; /* Asegura que la imagen cubra todo el área */
+    background-position: center; /* Centra la imagen */
+    border-radius: 50%; /* Aplica un borde redondeado para hacerla circular */
+}
+
+
+.footer-bottom {
+    text-align: center;
     font-size: 0.8rem;
     color: #bbb;
-}
-
-/* Efectos de hover para imágenes y texto */
-.webinar:hover .webinar img {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-/* Animaciones */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeInUp 0.8s ease-out;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero p {
-        font-size: 1.1rem;
-    }
-    
-    .prevention-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-links {
-        gap: 1rem;
-    }
-    
-    .nav-links a {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-    
-    .webinars {
-        flex-direction: column;
-    }
-    
-    .webinar {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
+    margin-top: 20px;
 }
