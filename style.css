@@ -312,14 +312,14 @@ nav {
 }
 
 .feedback-image {
-    width: 300px;
+    width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
 /* Ajuste del iframe de Google Forms */
 .feedback-right iframe {
-    width: 150%; /* 100% de ancho */
+    width: 100%; /* 100% de ancho */
     height: 450px; /* Altura del iframe */
     border: none;
 }
