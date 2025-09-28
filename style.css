@@ -299,7 +299,7 @@ nav {
 .feedback-container {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 50%;
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
@@ -312,14 +312,14 @@ nav {
 }
 
 .feedback-image {
-    width: 500px;
+    width: 400px;
     height: auto;
     border-radius: 8px;
 }
 
 /* Ajuste del iframe de Google Forms */
 .feedback-right iframe {
-    width: 600px; /* 100% de ancho */
+    width: 150%; /* 100% de ancho */
     height: 450px; /* Altura del iframe */
     border: none;
 }
