@@ -91,7 +91,7 @@ nav {
 
 .nav-links a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px #31a5e9;
 }
 
 
@@ -142,13 +142,18 @@ nav {
     display: flex;
     overflow: hidden;
     width: 70%;
+    position: relative; 
 }
-
+.carousel-rail {
+  display: flex;
+  gap: 0.5rem;          /* usamos gap en lugar de margin en .valor */
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
 .valor {
-    min-width: 100%;
+    min-width: 20%;
     background: white;
     padding: 2rem;
-    margin: 0 0.5rem;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
     font-weight: bold;
@@ -157,6 +162,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 0 0 100%; 
 }
 
 .prev, .next {
@@ -173,6 +179,7 @@ nav {
 .prev:hover, .next:hover {
     background: var(--accent-color);
 }
+
 
 /* Equipo */
 .grid-equipo {
@@ -221,9 +228,86 @@ nav {
 }
 
 /* Footer en Nosotros (ya hereda estilos, solo ajusto link volver) */
-footer a.volver {
-    display: inline-block;
-    margin-top: 1rem;
-    color: var(--accent-color);
-    font-weight: bold;
+/* Footer */
+footer {
+    background: #004d79;
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
 }
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 1rem;
+}
+
+footer a:hover {
+    color: #14b8a6;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-left {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left;
+}
+.social-icon {
+    width: 100px;  /* Tamaño más pequeño para el ícono social */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-top: 10px;
+}
+
+
+.footer-center {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-right {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+/* Asegurándote de que el contenedor principal esté configurado para centrar el contenido */
+.footer-center {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100%; /* Asegura que ocupe todo el espacio disponible */
+}
+.footer-center .heart-shape {
+    width: 200px;
+    height: 200px;
+    background-image: url('/IMAGENESCU/slogan.png');
+    background-size: cover; /* Asegura que la imagen cubra todo el área */
+    background-position: center; /* Centra la imagen */
+    border-radius: 50%; /* Aplica un borde redondeado para hacerla circular */
+}
+
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #bbb;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;  /* Apila las columnas en pantallas pequeñas */
+        text-align: center;
+    }
+
+    .footer-left, .footer-right {
+        margin-bottom: 1rem; /* Añade espacio entre las columnas */
+    }
+}
+
