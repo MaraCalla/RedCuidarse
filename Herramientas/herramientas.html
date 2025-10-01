@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Herramientas | Cuidarse</title>
+  <!-- Ajusta la ruta si usas carpetas /css -->
+  <link rel="stylesheet" href="../Herramientas/herramientas.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="../index.html" aria-label="Inicio Cuidarse">
+          <img src="../IMAGENESCU/logopng.jpg" alt="Cuidarse">
+        </a>
+      </div>
+
+      <div class="mobile-menu-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+
+      <ul class="nav-links" id="mainNav">
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#secciones">Secciones</a></li>
+        <li><a href="#faq">Ayuda rápida</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero mini">
+    <div class="hero-content">
+      <h1>Herramientas</h1>
+      <p>Accede a recursos de salud mental organizados: Blog, Contenido y Recomendaciones.</p>
+    </div>
+  </section>
+
+  <!-- RESUMEN -->
+  <section id="resumen" class="seccion">
+    <div class="section-header">
+      <h2>Resumen</h2>
+      <p class="section-sub">Tres espacios, un objetivo: acompañarte con información clara y práctica.</p>
+    </div>
+
+    <div class="grid-cards intro-cards" role="list">
+      <article class="card tool" role="listitem">
+        <div class="tool-icon" aria-hidden="true">📝</div>
+        <h3>Blog</h3>
+        <p>Artículos breves y claros sobre bienestar emocional, manejo del estrés y hábitos saludables.</p>
+        <a class="btn" href="/HERRAMIENTAS/blog/blog.html" aria-label="Ir al Blog">Ir al Blog</a>
+      </article>
+
+      <article class="card tool" role="listitem">
+        <div class="tool-icon" aria-hidden="true">🎒</div>
+        <h3>Contenido</h3>
+        <p>Plantillas, infografías y guías rápidas para usar en clase o en casa. Descarga y comparte.</p>
+        <a class="btn" href="/HERRAMIENTAS/contenido/contenido.html" aria-label="Ir a Contenido">Ir a Contenido</a>
+      </article>
+
+      <article class="card tool" role="listitem">
+        <div class="tool-icon" aria-hidden="true">⭐</div>
+        <h3>Recomendaciones</h3>
+        <p>Lecturas, podcasts y recursos verificados para profundizar de forma segura.</p>
+        <a class="btn" href="/HERRAMIENTAS/recomendaciones/recomendaciones.html" aria-label="Ir a Recomendaciones">Ir a Recomendaciones</a>
+      </article>
+    </div>
+
+    <div class="callout">
+      <p><strong>Nota:</strong> Verifica siempre las fuentes locales y la vigencia de los recursos sugeridos.</p>
+    </div>
+  </section>
+
+  <!-- SECCIONES (con accesos rápidos y filtros mínimos) -->
+  <section id="secciones" class="seccion">
+    <div class="section-header">
+      <h2>Explora</h2>
+      <p class="section-sub">Usa los accesos rápidos o el buscador para ir directo a lo que necesitas.</p>
+    </div>
+
+    <div class="controls">
+      <div class="tabs" role="tablist" aria-label="Secciones">
+        <button class="tab active" data-section="all" role="tab" aria-selected="true">Todas</button>
+        <button class="tab" data-section="Blog" role="tab">Blog</button>
+        <button class="tab" data-section="Contenido" role="tab">Contenido</button>
+        <button class="tab" data-section="Recomendaciones" role="tab">Recomendaciones</button>
+      </div>
+
+      <div class="search">
+        <input type="text" id="searchInput" placeholder="Buscar (ej. estrés, ansiedad, hábitos)" aria-label="Buscar recurso"/>
+      </div>
+    </div>
+
+    <div id="toolsGrid" class="grid-countries" aria-live="polite"></div>
+  </section>
+
+  <!-- AYUDA RÁPIDA / FAQ -->
+  <section id="faq" class="seccion">
+    <div class="section-header">
+      <h2>Ayuda rápida</h2>
+      <p class="section-sub">Pequeñas respuestas para dudas comunes.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>¿Puedo compartir los recursos?</summary>
+        <p>Sí, cita la fuente y evita modificar contenidos sensibles sin revisar con un profesional.</p>
+      </details>
+      <details>
+        <summary>¿Los artículos del Blog son clínicos?</summary>
+        <p>No. Son informativos y de educación para la salud. En emergencia, usa líneas de ayuda locales.</p>
+      </details>
+      <details>
+        <summary>¿Cómo se eligen las recomendaciones?</summary>
+        <p>Priorizamos recursos claros, accesibles y con respaldo institucional o académico cuando es posible.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <p><strong>Contacto:</strong> <a href="mailto:redcuidarse@hotmail.com">redcuidarse@hotmail.com</a></p>
+        <a href="https://www.instagram.com/redcuidarse/" target="_blank" rel="noopener">
+          <img src="../IMAGENESCU/logoazul.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
+      <div class="footer-center">
+        <div class="heart-shape"></div>
+      </div>
+      <div class="footer-right">
+        <p><strong>Organización Aliada:</strong></p>
+        <img src="../IMAGENESCU/Kectil.png" alt="Kectil" class="organization-logo">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Cuidar(se). Todos los derechos reservados.</p>
+      <p><a href="https://www.redcuidarse.org/privacidad">Política de Privacidad</a></p>
+    </div>
+  </footer>
+
+  <!-- Ajusta la ruta si usas /js -->
+   <script src="java.js"></script>
+  <script src="../Herramientas/herramientas.js"></script>
+</body>
+</html>

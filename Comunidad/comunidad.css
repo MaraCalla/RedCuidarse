@@ -1,0 +1,264 @@
+/* ------------------------------
+   Estilos Comunidad con paleta Cuidarse
+-------------------------------*/
+/* Personalización de la paleta de colores */
+:root {
+    --primary-color: #0699DB; /* Medium text */
+    --secondary-color: #00BEEA; /* Bright text */
+    --accent-color: #0699DB;; /* Aa */
+    --accent-pink: #c2f0fd; /* Light text */
+    --accent-cyan: #8fffd8; /* Aa */
+    --text-primary: #477ABD; /* Dark text */
+    --text-secondary: #545454; /* Black text */
+    --text-light: #EAEAEA; /* White text */
+    --bg-primary: #edf0ff; /* Light background */
+    --bg-secondary: #8fffd8; /* Aa */
+    --bg-dark: #004d79; /* Aa */
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-elegant: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --glass: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+/* Estilo general */
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    color: rgb(37, 37, 37);
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo img {
+    width: 80px;  /* Ajusta el tamaño del logo a 80px de ancho */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a:hover::before {
+    left: 0;
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.normas {
+    margin: 3rem 0;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.normas h2 {
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+/* Normas */
+.lista-normas {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-normas li {
+  background: var(--bg-card);
+  border-left: 6px solid var(--primary-color);
+  margin-bottom: 0.8rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.lista-normas li:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-md);
+  background: var(--accent-pink);
+}
+
+.imagen-normas img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  border: 3px solid var(--accent-color);
+}
+
+/* FAQ */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border-left: 6px solid var(--secondary-color);
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  background: var(--accent-pink);
+  box-shadow: var(--shadow-md);
+}
+
+.faq-item h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  position: relative;
+}
+
+.faq-item h3::after {
+  content: "➕";
+  float: right;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.open h3::before {
+  content: "➖";
+  color: var(--accent-color);
+}
+
+.faq-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+/* Footer */
+footer {
+    background: #004d79;
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 1rem;
+}
+
+footer a:hover {
+    color: #14b8a6;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-left {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left;
+}
+.social-icon {
+    width: 100px;  /* Tamaño más pequeño para el ícono social */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-top: 10px;
+}
+
+
+.footer-center {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-right {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+/* Asegurándote de que el contenedor principal esté configurado para centrar el contenido */
+.footer-center {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100%; /* Asegura que ocupe todo el espacio disponible */
+}
+.footer-center .heart-shape {
+    width: 200px;
+    height: 200px;
+    background-image: url('IMAGENESCU/slogan.png');
+    background-size: cover; /* Asegura que la imagen cubra todo el área */
+    background-position: center; /* Centra la imagen */
+    border-radius: 50%; /* Aplica un borde redondeado para hacerla circular */
+}
+
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #bbb;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;  /* Apila las columnas en pantallas pequeñas */
+        text-align: center;
+    }
+
+    .footer-left, .footer-right {
+        margin-bottom: 1rem; /* Añade espacio entre las columnas */
+    }
+}
+
+
+
+/* Efectos de hover para imágenes y texto */
+.webinar:hover .webinar img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
