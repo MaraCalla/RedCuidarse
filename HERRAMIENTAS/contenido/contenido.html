@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contenido | Cuidarse</title>
+  <link rel="stylesheet" href="../contenido/contenido.css"/>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="../index.html"><img src="../IMAGENESCU/logopng.jpg" alt="Cuidarse"></a></div>
+      <div class="mobile-menu-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+      <ul class="nav-links" id="mainNav">
+        <li><a href="#guias">Guías</a></li>
+        <li><a href="#infografias">Infografías</a></li>
+        <li><a href="#ejercicios">Ejercicios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero mini">
+    <div class="hero-content">
+      <h1>Contenido</h1>
+      <p>Guías descargables, infografías y ejercicios como meditación y respiración.</p>
+    </div>
+  </section>
+
+  <!-- Controles -->
+  <section class="seccion">
+    <div class="controls">
+      <div class="tabs" aria-label="Tipo de recurso" role="tablist">
+        <button class="tab active" data-type="all" role="tab" aria-selected="true">Todos</button>
+        <button class="tab" data-type="Guía" role="tab">Guías</button>
+        <button class="tab" data-type="Infografía" role="tab">Infografías</button>
+        <button class="tab" data-type="Ejercicio" role="tab">Ejercicios</button>
+      </div>
+      <div class="search">
+        <input id="searchInput" type="text" placeholder="Buscar (ej. ansiedad, respiración...)" aria-label="Buscar contenido"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section id="grid" class="seccion">
+    <div id="contentGrid" class="grid-cards" aria-live="polite"></div>
+  </section>
+
+  <!-- OVERLAY: ejercicio de respiración simple -->
+  <div id="breathOverlay" class="overlay" aria-hidden="true">
+    <div class="overlay-card">
+      <button class="overlay-close" id="breathClose" aria-label="Cerrar">×</button>
+      <h3>Ejercicio de Respiración</h3>
+      <p id="breathPhase">Inhala</p>
+      <div class="circle" id="breathCircle"></div>
+      <div class="overlay-actions">
+        <button id="breathStart" class="btn">Iniciar</button>
+        <button id="breathStop" class="btn outline">Detener</button>
+      </div>
+      <small>Tip: 4–4 (inhala 4s, exhala 4s). Ajusta a tu comodidad.</small>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <p><strong>Contacto:</strong> <a href="mailto:redcuidarse@hotmail.com">redcuidarse@hotmail.com</a></p>
+        <a href="https://www.instagram.com/redcuidarse/" target="_blank" rel="noopener">
+          <img src="../IMAGENESCU/logoazul.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
+      <div class="footer-center"><div class="heart-shape"></div></div>
+      <div class="footer-right">
+        <p><strong>Organización Aliada:</strong></p>
+        <img src="../IMAGENESCU/Kectil.png" alt="Kectil" class="organization-logo">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Cuidar(se). Todos los derechos reservados.</p>
+      <p><a href="https://www.redcuidarse.org/privacidad">Política de Privacidad</a></p>
+    </div>
+  </footer>
+
+  <script src="../contenido/contenido.js"></script>
+</body>
+</html>
