@@ -287,7 +287,7 @@ footer a:hover {
 .footer-center .heart-shape {
     width: 200px;
     height: 200px;
-    background-image: url('IMAGENESCU/slogan.png');
+    background-image: url('../IMAGENESCU/slogan.png');
     background-size: cover; /* Asegura que la imagen cubra todo el área */
     background-position: center; /* Centra la imagen */
     border-radius: 50%; /* Aplica un borde redondeado para hacerla circular */
