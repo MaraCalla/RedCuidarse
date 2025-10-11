@@ -13,10 +13,10 @@
     --bg-secondary: #8fffd8; /* Aa */
     --bg-dark: #004d79; /* Aa */
     --bg-card: rgba(255, 255, 255, 0.95);
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-primary: linear-gradient(135deg, #5471ef 0%, #275781 100%);
+    --gradient-secondary: linear-gradient(135deg, #93ccfb 0%, #5799f5 100%);
     --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --gradient-elegant: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --gradient-elegant: linear-gradient(135deg, #667eea 0%, #4b64a2 50%, #9398fb 100%);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -91,7 +91,7 @@ nav {
 
 .nav-links a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px #31a5e9;
+    box-shadow: 0 5px 15px #404549;
 }
 
 
@@ -130,55 +130,74 @@ nav {
 
 /* Carrusel de Valores */
 .carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 1000px;         /* un poquito más ancho ayuda a 3 cards */
+  margin: 0 auto;
+  gap: 1rem;                  /* espacio entre flechas y pista */
 }
 
 .carousel-track {
-    display: flex;
-    overflow: hidden;
-    width: 70%;
-    position: relative; 
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
+
 .carousel-rail {
   display: flex;
-  gap: 0.5rem;          /* usamos gap en lugar de margin en .valor */
+  gap: 1rem;                  /* espacio entre cards */
   transition: transform 0.45s ease;
   will-change: transform;
 }
+
 .valor {
-    min-width: 20%;
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 100%; 
+  box-sizing: border-box;     /* padding dentro del ancho */
+  flex: 0 0 33.333%;          /* 3 cards visibles en desktop */
+  /* puedes usar calc si quieres compensar el gap exactamente */
+  /* flex: 0 0 calc((100% - 2rem) / 3);  // si gap: 1rem */
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md, 0 6px 24px rgba(0,0,0,.08));
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-secondary, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Botones */
 .prev, .next {
-    background: var(--bg-dark);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 50%;
-    transition: background 0.3s ease;
+  background: var(--bg-dark, #111827);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background 0.3s ease;
+  flex: 0 0 auto;             /* no colapsar */
 }
 
 .prev:hover, .next:hover {
-    background: var(--accent-color);
+  background: var(--accent-color, #2563eb);
 }
+
+/* Responsivo: 2 cards en tablet, 1 en móvil */
+@media (max-width: 1024px) {
+  .valor { flex-basis: 50%; }     /* 2 visibles */
+}
+
+@media (max-width: 640px) {
+  .valor { flex-basis: 100%; }    /* 1 visible */
+}
+
 
 
 /* Equipo */
@@ -214,16 +233,18 @@ nav {
 .persona h3 {
     margin-bottom: 0.3rem;
     color: var(--primary-color);
+    font-size: 1rem;
 }
 
 .persona .puesto {
     font-weight: bold;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
+    font-size: 0.9rem;
 }
 
 .persona .detalles {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
 }
 

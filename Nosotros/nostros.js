@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const viewport = document.querySelector(".carousel-track"); // será el viewport
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
+  const viewport = document.querySelector(".carousel-track"); // viewport
+  const prevBtn  = document.querySelector(".prev");
+  const nextBtn  = document.querySelector(".next");
 
-   let rail = viewport.querySelector(".carousel-rail");
+  // ---- Asegurar .carousel-rail (tu bloque, intacto) ----
+  let rail = viewport.querySelector(".carousel-rail");
   if (!rail) {
     rail = document.createElement("div");
     rail.className = "carousel-rail";
@@ -11,39 +12,83 @@ document.addEventListener("DOMContentLoaded", () => {
     viewport.appendChild(rail);
   }
 
-  const items = Array.from(rail.querySelectorAll(".valor"));
+  let items = Array.from(rail.querySelectorAll(".valor"));
 
-  let currentIndex = 0;
-  let slideWidth = 0;
-  let slideGap = 0;
+  // Estado
+  let currentIndex = 0;  // índice del primer ítem visible
+  let stepPx = 0;        // avance por card (cardWidth + gap)
+  let visibles = 1;      // cuántas caben a la vez
+  let maxIndex = 0;      // último índice inicial posible
   let isAnimating = false;
 
+  function readGapPx(el) {
+    const cs = getComputedStyle(el);
+    // algunos navegadores exponen gap como columnGap/rowGap
+    return parseFloat(cs.gap || cs.columnGap || "0") || 0;
+  }
+
   function computeSizes() {
-    // Ancho visible del viewport (lo que se ve por pantalla)
-    sviewportWidth = viewport.clientWidth;
-    const csRail = window.getComputedStyle(rail);
-    gapPx = parseFloat(csRail.gap || csRail.columnGap || "0") || 0;
-    // Ajuste índice por seguridad
-    if (currentIndex > items.length - 1) currentIndex = items.length - 1;
+    // refrescar items por si cambiaste el DOM
+    items = Array.from(rail.querySelectorAll(".valor"));
+    if (items.length === 0) return;
+
+    const first = items[0];
+    const gap = readGapPx(rail);
+
+    // ancho real de la card
+    const cardRect = first.getBoundingClientRect();
+    const cardWidth = cardRect.width;
+
+    // ancho del viewport
+    const vpWidth = viewport.clientWidth;
+
+    // cuántas entran completas
+    visibles = Math.max(1, Math.floor((vpWidth + gap) / (cardWidth + gap)));
+
+    // paso en píxeles por “una” card
+    stepPx = cardWidth + gap;
+
+    // último índice inicial que aún deja “visibles” cards
+    maxIndex = Math.max(0, items.length - visibles);
+
+    // corregir índice si quedó fuera de rango tras un resize
+    currentIndex = Math.min(currentIndex, maxIndex);
 
     applyTransform();
+    updateButtons();
   }
 
   function applyTransform() {
-    const offset = -(currentIndex * (slideWidth + slideGap));
+    const offset = -(currentIndex * stepPx);
     rail.style.transform = `translateX(${offset}px)`;
+  }
+
+  function updateButtons() {
+    if (prevBtn) {
+      prevBtn.disabled = currentIndex <= 0;
+      prevBtn.setAttribute("aria-disabled", String(prevBtn.disabled));
+    }
+    if (nextBtn) {
+      nextBtn.disabled = currentIndex >= maxIndex;
+      nextBtn.setAttribute("aria-disabled", String(nextBtn.disabled));
+    }
   }
 
   function goTo(index) {
     if (isAnimating) return;
-    const maxIndex = items.length - 1;
-    currentIndex = index < 0 ? maxIndex : index > maxIndex ? 0 : index;
+    // clamp a los bordes (sin loop)
+    const clamped = Math.max(0, Math.min(index, maxIndex));
+    if (clamped === currentIndex) return;
+    currentIndex = clamped;
+
     isAnimating = true;
     applyTransform();
-    setTimeout(() => (isAnimating = false), 500);
+    updateButtons();
+    // La transición CSS dura ~450ms (según tu CSS)
+    setTimeout(() => (isAnimating = false), 480);
   }
 
-  // Controles
+  // Controles (avanzar de a 1 card)
   prevBtn?.addEventListener("click", () => goTo(currentIndex - 1));
   nextBtn?.addEventListener("click", () => goTo(currentIndex + 1));
 
@@ -63,12 +108,24 @@ document.addEventListener("DOMContentLoaded", () => {
     touching = false;
   });
 
-  // Recalcular en resize
-  window.addEventListener("resize", computeSizes);
-  // Primer cálculo (pequeño delay por fuentes/layout)
+  // Recalcular en resize (con RAF para no spamear)
+  let resizeRaf;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(computeSizes);
+  });
+
+  // Primer cálculo (deja que el layout/polices asienten)
   setTimeout(computeSizes, 0);
 
-  // (Opcional) Autoplay:
-  // setInterval(() => goTo(currentIndex + 1), 4000);
+  // // (Opcional) Autoplay cada 4s:
+  // setInterval(() => {
+  //   if (currentIndex < maxIndex) goTo(currentIndex + 1);
+  //   else goTo(0); // reinicia
+  // }, 4000);
+
+  // Helpers por si agregas/quitas cards dinámicamente
+  // window.recomputeCarousel = computeSizes;
 });
+
 
