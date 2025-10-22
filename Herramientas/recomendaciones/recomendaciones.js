@@ -249,11 +249,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 // Init
 renderBooks();
 renderCreators();
-// Botón "Volver atrás"
-document.getElementById("backButton")?.addEventListener("click", () => {
-  if (window.history.length > 1) {
-    window.history.back();
-  } else {
-    window.location.href = "index.html"; // en caso de que no haya historial
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const backBtn = document.getElementById("backButton");
+  if (!backBtn) return;
+
+  backBtn.addEventListener("click", () => {
+    // Si hay historial de navegación, vuelve
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      // Si no hay historial (por ejemplo si se abrió directo)
+      const path = window.location.pathname;
+      // Sube un nivel hacia el index principal
+      const parent = path.includes("/") ? path.split("/").slice(0, -1).join("/") : "/";
+      window.location.href = parent.includes("index.html") ? "../index.html" : "../";
+    }
+  });
 });
+

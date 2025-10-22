@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <div id="google_translate_element"></div>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog | Cuidarse</title>
@@ -73,7 +74,7 @@
   </section>
 
   <!-- MODAL PREVIEW -->
-<div class="modal" id="modal" aria-hidden="true">
+ <div class="modal" id="modal" aria-hidden="true">
   <div class="modal-dialog">
      <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
     <h3 id="modalTitle"></h3>
@@ -81,9 +82,22 @@
     <div id="modalAuthor" style="font-weight:500; color:#374151; margin-bottom:.6rem;"></div>
     <div id="modalContent"></div>
   </div>
-</div>
-
-
+ </div>
+ <button id="backButton" class="back-btn" aria-label="Volver atrás">
+  ← Volver
+ </button>
+ <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es', // idioma original de tu web
+      includedLanguages: 'en,es', // idiomas disponibles
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+ </script>
+ <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
   <!-- FOOTER -->
   <footer>
     <div class="footer-top">
@@ -106,8 +120,5 @@
   </footer>
 
   <script src="../blog/blog.js"></script>
-  <button id="backButton" class="back-btn" aria-label="Volver atrás">
-  ← Volver
-</button>
-</body>
+  
 </html>

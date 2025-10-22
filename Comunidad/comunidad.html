@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <div id="google_translate_element"></div>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comunidad | Cuidarse</title>
@@ -76,7 +77,7 @@
   <p style="font-size: 0.9em; color: #555; margin-top: 20px; text-align: center;">
     *Todas las historias se revisan antes de publicarse para cuidar el respeto, la empatía y la confidencialidad.
   </p>
-</section>
+ </section>
 
 
     <!-- SECCIÓN PARTICIPA -->
@@ -112,8 +113,23 @@
       </div>
     </section>
   </main>
+ <button id="backButton" class="back-btn" aria-label="Volver atrás">
+  ← Volver
+ </button>
+ <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es', // idioma original de tu web
+      includedLanguages: 'en,es', // idiomas disponibles
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- FOOTER -->
+</body>
+ <!-- FOOTER -->
     <footer>
         <div class="footer-top">
             <div class="footer-left">
@@ -139,10 +155,7 @@
             <p><a href="https://www.redcuidarse.org/privacidad">Política de Privacidad</a></p>
         </div>
     </footer> 
-<script src="java.js"></script>
+ <script src="java.js"></script>
   <script src="../Comunidad/comunidad.js"></script>
-  <button id="backButton" class="back-btn" aria-label="Volver atrás">
-  ← Volver
-</button>
-</body>
+
 </html>
