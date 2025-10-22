@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+/* Menú móvil */
+mobileToggle?.addEventListener("click", () => {
+  const isOpen = mainNav.classList.toggle("active");
+  mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
 document.addEventListener("DOMContentLoaded", () => {
   const backBtn = document.getElementById("backButton");
   if (!backBtn) return;
