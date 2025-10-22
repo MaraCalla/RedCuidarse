@@ -1,6 +1,6 @@
 # RedCuidarse
 RedCuidarse es una página web orientada a la promoción del cuidado de la salud mental en jóvenes. El proyecto reúne recursos, herramientas y canales de participación comunitaria para facilitar el acceso a información, apoyo y orientación.
-
+Link: https://maracalla.github.io/RedCuidarse/
 ## Funcionalidades principales
 
 - Página de inicio (`index.html`) con navegación clara hacia las secciones principales: Inicio, Nosotros, Comunidad, Herramientas y Emergencias.
@@ -66,10 +66,3 @@ Nota: No se requiere servidor para la versión estática; para desarrollo local 
 
 ---
 
-Si quieres, puedo:
-
-- Añadir badges (build, license, live demo) al inicio del README.
-- Escribir una guía de contribución `CONTRIBUTING.md` y plantillas de issue/PR.
-- Generar un archivo `README` en otro idioma.
-
-Di qué prefieres y lo agrego.
