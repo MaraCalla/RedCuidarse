@@ -186,20 +186,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 document.addEventListener("DOMContentLoaded", () => {
-  const backBtn = document.getElementById("backButton");
-  if (!backBtn) return;
+   const backButton = document.getElementById("backButton");
 
-  backBtn.addEventListener("click", () => {
-    // Si hay historial de navegación, vuelve
-    if (window.history.length > 1) {
-      window.history.back();
-    } else {
-      // Si no hay historial (por ejemplo si se abrió directo)
-      const path = window.location.pathname;
-      // Sube un nivel hacia el index principal
-      const parent = path.includes("/") ? path.split("/").slice(0, -1).join("/") : "/";
-      window.location.href = parent.includes("index.html") ? "../index.html" : "../";
-    }
-  });
+  if (backButton) {
+    backButton.addEventListener("click", () => {
+      // Si hay historial previo, volver
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        // Si no hay historial (por ejemplo, abrió la subpágina directamente),
+        // lo llevamos al inicio o a la página anterior lógica
+        window.location.href = "../index.html";
+      }
+    });
+  }
 });
 
