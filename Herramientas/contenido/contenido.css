@@ -4,9 +4,9 @@
   --text-primary:#477ABD; --text-secondary:#545454; --text-light:#EAEAEA;
   --bg-primary:#edf0ff; --bg-secondary:#8fffd8; --bg-dark:#004d79;
   --bg-card:rgba(255,255,255,.95);
-  --gradient-primary:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  --gradient-primary:linear-gradient(135deg,#7cbef0 0%,#1984ee 100%);
   --shadow-sm:0 1px 2px rgba(0,0,0,.05);
-  --shadow-md:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+  --shadow-md:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(22, 147, 248, 0.06);
   --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -28,8 +28,9 @@ header{background:rgba(255,255,255,.95);padding:1rem 0;box-shadow:0 2px 20px rgb
 }
 
 /* Hero */
-.hero.mini{background:var(--gradient-primary);padding:60px 0;color:#fff;text-align:center}
-.hero-content{max-width:800px;margin:0 auto;padding:0 1.5rem}
+.hero.mini{background:var(--gradient-primary);padding:60px 0;color:#fff;text-align:center;position:relative;overflow:hidden}
+.hero.mini::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%, transparent 70%);animation:rotate 20s linear infinite}
+@keyframes rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 
 /* Controles + grid */
 .seccion{max-width:1200px;margin:2.2rem auto;padding:0 1.5rem}
@@ -48,12 +49,185 @@ header{background:rgba(255,255,255,.95);padding:1rem 0;box-shadow:0 2px 20px rgb
 .btn.outline{background:#fff;color:var(--bg-dark);border:1px solid var(--bg-dark)}
 .btn:hover{background:var(--secondary-color);color:#fff}
 
-/* Overlay respiración */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;padding:1rem}
-.overlay.show{display:flex}
-.overlay-card{background:#fff;max-width:480px;width:100%;border-radius:16px;padding:1rem 1.2rem;box-shadow:var(--shadow-lg);text-align:center}
-.overlay-close{background:transparent;border:none;font-size:1.6rem;float:right;cursor:pointer}
-.circle{width:180px;height:180px;margin:1rem auto;border-radius:50%;background:var(--accent-pink);transition:transform 1s ease}
+/* Estilos comunes para los overlays */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que el overlay esté sobre otros elementos */
+}
+
+.overlay.show {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* ======== TARJETA INTERIOR ======== */
+.overlay-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem 1.5rem;
+  max-width: 640px;
+  width: 100%;
+  color: #222;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  max-height: 85vh;             /* altura limitada */
+  overflow-y: auto;             /* scroll interno */
+  text-align: left;
+  animation: popIn 0.25s ease;
+  scrollbar-gutter: stable both-edges;
+}
+/* ======== SCROLL PERSONALIZADO ======== */
+.overlay-card::-webkit-scrollbar {
+  width: 8px;
+}
+.overlay-card::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+.overlay-card::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+/* ======== BOTÓN DE CIERRE ======== */
+.overlay-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.6rem;
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+.overlay-close:hover {
+  color: var(--secondary-color, #1e88e5);
+}
+/* ======== TIPOGRAFÍA Y CONTENIDO ======== */
+.overlay-card h3, 
+.overlay-card h4 {
+  color: var(--bg-dark, #222);
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.overlay-card h5 {
+  margin-top: 1rem;
+  color: #444;
+}
+
+.overlay-card p {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.overlay-card ol, 
+.overlay-card ul {
+  margin: 0.8rem 0 1rem 1.5rem;
+  color: #444;
+}
+
+.overlay-card li {
+  margin-bottom: 0.5rem;
+}
+
+/* ======== BOTONES DENTRO DE LOS OVERLAYS ======== */
+.overlay-card .btn {
+  background: var(--bg-dark, #222);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+.overlay-card .btn:hover {
+  background: var(--secondary-color, #1e88e5);
+}
+
+/* ======== ANIMACIONES ======== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+/* Específicos para el overlay de respiración */
+#breathCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #3eceef;
+  margin: 20px auto;
+  transition: transform 1s ease;
+}
+
+#breathPhase {
+  font-size: 1.5em;
+  margin: 15px 0;
+  color: #333;
+}
+
+.overlay-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.overlay-actions .btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  background-color: #3eceef;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.overlay-actions .btn.outline {
+  background-color: transparent;
+  border: 2px solid #3eceef;
+  color: #3eceef;
+}
+
+/* Específicos para el overlay de guía */
+#guideTitle {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#guideDescription {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 20px; /* Aumenta el margen inferior para más espacio */
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 10px; /* Agrega padding para mejorar el espaciado interno */
+  line-height: 1.5; /* Mejora la legibilidad al aumentar el espacio entre líneas */
+  justify-content: space-between; /* Asegura que los elementos se distribuyan adecuadamente si hay más de uno */
+}
+
+
+/* Estilos adicionales para mejorar la accesibilidad */
+.overlay-close:focus {
+  outline: 2px solid #70beee;
+}
+
 
 /* Footer */
 footer{background:var(--bg-dark);color:#fff;padding:3rem 0;text-align:center;margin-top:2.2rem}
@@ -62,9 +236,40 @@ footer{background:var(--bg-dark);color:#fff;padding:3rem 0;text-align:center;mar
 .footer-left{text-align:left}
 .social-icon{width:100px;height:auto;margin-top:10px}
 .footer-center{display:flex;justify-content:center;align-items:center;height:100%}
-.footer-center .heart-shape{width:200px;height:200px;background-image:url('../IMAGENESCU/slogan.png');background-size:cover;background-position:center;border-radius:50%}
+.footer-center .heart-shape{width:200px;height:200px;background-image:url('/IMAGENESCU/slogan.png');background-size:cover;background-position:center;border-radius:50%}
 .footer-bottom{text-align:center;font-size:.8rem;color:#bbb;margin-top:20px}
 
 /* Responsive */
 @media (max-width:992px){.grid-cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.grid-cards{grid-template-columns:1fr}}
+.back-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--bg-dark, #222);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  z-index: 10000;
+}
+
+.back-btn:hover {
+  background-color: var(--secondary-color, #3b82f6);
+  transform: scale(1.05);
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 600px) {
+  .back-btn {
+    bottom: 15px;
+    left: 15px;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}

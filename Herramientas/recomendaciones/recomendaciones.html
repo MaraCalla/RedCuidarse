@@ -9,7 +9,7 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo"><a href="../index.html"><img src="../IMAGENESCU/logopng.jpg" alt="Cuidarse"></a></div>
+      <div class="logo"><a href="../index.html"><img src="../../IMAGENESCU/logopng.jpg" alt="Cuidarse"></a></div>
       <div class="mobile-menu-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </div>
@@ -17,7 +17,6 @@
         <li><a href="#libros">Libros</a></li>
         <li><a href="#podcasts">Podcasts/YouTube</a></li>
         <li><a href="#spotify">Playlist Spotify</a></li>
-        <li><a href="#youtube">Playlist YouTube</a></li>
         <li><a href="#pelis">Películas/Series</a></li>
       </ul>
     </nav>
@@ -47,9 +46,10 @@
     <!-- CARRUSEL -->
     <div id="librosCatalog" class="catalog">
       <div class="carousel">
-        <button class="prev" id="booksPrev" aria-label="Anterior">‹</button>
+        <button class="next" id="booksPrev" aria-label="Anterior">‹</button>
         <div class="carousel-track" id="booksTrack"></div>
-        <button class="next" id="booksNext" aria-label="Siguiente">›</button>
+        <button class="prev" id="booksNext" aria-label="Siguiente">›</button>
+
       </div>
 
       <!-- GRID catálogo -->
@@ -58,72 +58,108 @@
 
     <!-- PADLET -->
     <div id="librosPadlet" class="padlet-wrap" hidden>
-      <!-- Reemplaza el src por tu Padlet -->
-      <iframe title="Padlet Libros" src="https://padlet.com/embed/example" class="padlet-embed" allow="camera;microphone"></iframe>
+      <div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/80hnrian222szl1l" frameborder="0" allow="camera;microphone;geolocation;display-capture;clipboard-write" style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="display:flex;align-items:center;justify-content:end;margin:0;height:28px"><a href="https://padlet.com?ref=embed" style="display:block;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank"><div style="display:flex;align-items:center;"><img src="https://padlet.net/embeds/made_with_padlet_2022.png" width="114" height="28" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none" alt="Hecho con Padlet"></div></a></div></div>
     </div>
   </section>
 
-  <!-- PODCASTS / YOUTUBE -->
-  <section id="podcasts" class="seccion">
-    <div class="section-header">
-      <h2>Podcasts / YouTube</h2>
-      <p class="section-sub">Resumen breve del canal + video destacado.</p>
-    </div>
-    <div id="creatorsGrid" class="grid-cards"></div>
-  </section>
+ <!-- PODCASTS / YOUTUBE -->
+<section id="podcasts" class="seccion">
+  <div class="section-header">
+    <h2>Podcasts / YouTube</h2>
+    <p class="section-sub">Resumen breve del canal + video destacado.</p>
+  </div>
+
+  <div id="creatorsContainer">
+    <!-- Canal 1: Farid Dieck -->
+    <article class="creator">
+      <div class="embed">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/y7gFKG4vL_w?si=90812Kh8WhxPY-UA" title="Farid Dieck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="body">
+        <h3>Farid Dieck</h3>
+        <p>Psicólogo y conferencista. Videos sobre psicología y desarrollo personal.</p>
+      </div>
+    </article>
+
+    <!-- Canal 2: Gabriel Rolón -->
+    <article class="creator">
+      <div class="embed">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/ITovsJg-q5c?si=ABkOT9xmcA1x0Ahc" title="Gabriel Rolón" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="body">
+        <h3>Gabriel Rolón</h3>
+        <p>Psicoanalista y escritor. Reflexiones sobre las emociones y la mente humana.</p>
+      </div>
+    </article>
+
+    <!-- Canal 3: Aprendamos Juntos -->
+    <article class="creator">
+      <div class="embed">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/5YJ_t41Z440?si=ThaMzAQWo_x96k6R" title="Aprendamos Juntos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="body">
+        <h3>Aprendamos Juntos</h3>
+        <p>Videos educativos sobre temas de bienestar y desarrollo personal.</p>
+      </div>
+    </article>
+
+    <!-- Canal 4: Claudia Nicolasa -->
+    <article class="creator">
+      <div class="embed">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/DfGIIuguRM8?si=Tw13oSYNBV7HX18A" title="Claudia Nicolasa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="body">
+        <h3>Claudia Nicolasa</h3>
+        <p>Psicóloga con temas de autoconocimiento y bienestar emocional.</p>
+      </div>
+    </article>
+  </div>
+</section>
 
   <!-- PLAYLIST SPOTIFY -->
   <section id="spotify" class="seccion">
     <div class="section-header">
-      <h2>Playlist colaborativa (Spotify)</h2>
-      <p class="section-sub">Pega tu URL de playlist y actualizamos el embed.</p>
+      <h2>Playlist del equipo CUIDARSE (Spotify)</h2>
+      
     </div>
-    <div class="playlist-control">
-      <input id="spotifyUrl" type="text" placeholder="https://open.spotify.com/playlist/..." aria-label="URL playlist Spotify"/>
-      <button class="btn" id="spotifySet">Actualizar</button>
-    </div>
+  
     <div class="embed-wrap">
-      <!-- Reemplaza por tu embed; este es de ejemplo -->
-      <iframe id="spotifyFrame" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3rxVfibe1L0" width="100%" height="352" frameborder="0" allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/76ycfaaNBxrb9HYNygiZR6?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </section>
 
   <!-- PLAYLIST YOUTUBE -->
   <section id="youtube" class="seccion">
     <div class="section-header">
-      <h2>Playlist (YouTube)</h2>
-      <p class="section-sub">Pega la URL de playlist de YouTube para mostrarla aquí.</p>
+      <h2>Meditación</h2>
+      <p class="section-sub">Disfruta de la música.</p>
     </div>
-    <div class="playlist-control">
-      <input id="ytUrl" type="text" placeholder="https://www.youtube.com/playlist?list=..." aria-label="URL playlist YouTube"/>
-      <button class="btn" id="ytSet">Actualizar</button>
-    </div>
-    <div class="embed-wrap">
-      <iframe id="ytFrame" width="100%" height="380" src="https://www.youtube.com/embed/videoseries?list=PLynExample" title="YouTube playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" loading="lazy" allowfullscreen></iframe>
+    <div class="embed-yt">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/FjHGZj2IjBk?si=Fcp0QXVvtE9ECt0F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </section>
 
-  <!-- PELÍCULAS / SERIES -->
+  <!-- PELÍCULAS / SERIES 
   <section id="pelis" class="seccion">
     <div class="section-header">
       <h2>Películas / Series</h2>
       <p class="section-sub">Reseñas cortas, dónde ver y ficha visual.</p>
     </div>
     <div id="moviesGrid" class="grid-cards"></div>
-  </section>
+  </section> -->
 
   <footer>
     <div class="footer-top">
       <div class="footer-left">
         <p><strong>Contacto:</strong> <a href="mailto:redcuidarse@hotmail.com">redcuidarse@hotmail.com</a></p>
         <a href="https://www.instagram.com/redcuidarse/" target="_blank" rel="noopener">
-          <img src="../IMAGENESCU/logoazul.png" alt="Instagram" class="social-icon">
+          <img src="../../IMAGENESCU/logoazul.png" alt="Instagram" class="social-icon">
         </a>
       </div>
       <div class="footer-center"><div class="heart-shape"></div></div>
       <div class="footer-right">
         <p><strong>Organización Aliada:</strong></p>
-        <img src="../IMAGENESCU/Kectil.png" alt="Kectil" class="organization-logo">
+        <img src="../../IMAGENESCU/Kectil.png" alt="Kectil" class="organization-logo">
       </div>
     </div>
     <div class="footer-bottom">
@@ -133,5 +169,9 @@
   </footer>
 
   <script src="../recomendaciones/recomendaciones.js"></script>
+  <button id="backButton" class="back-btn" aria-label="Volver atrás">
+  ← Volver
+</button>
+
 </body>
 </html>

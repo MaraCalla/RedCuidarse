@@ -4,7 +4,7 @@
   --text-primary:#477ABD; --text-secondary:#545454; --text-light:#EAEAEA;
   --bg-primary:#edf0ff; --bg-secondary:#8fffd8; --bg-dark:#004d79;
   --bg-card:rgba(255,255,255,.95);
-  --gradient-primary:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  --gradient-primary:linear-gradient(135deg,#7cbef0 0%,#1984ee 100%);
   --shadow-sm:0 1px 2px rgba(0,0,0,.05);
   --shadow-md:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
   --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
@@ -31,6 +31,8 @@ header{background:rgba(255,255,255,.95);color:#252525;padding:1rem 0;box-shadow:
 
 /* Hero */
 .hero.mini{background:var(--gradient-primary);padding:60px 0;color:#fff;text-align:center;position:relative;overflow:hidden}
+.hero.mini::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%, transparent 70%);animation:rotate 20s linear infinite}
+@keyframes rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 .hero-content{max-width:800px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:2}
 .hero-content h1{font-size:2.2rem;margin-bottom:.4rem}
 
@@ -45,8 +47,18 @@ header{background:rgba(255,255,255,.95);color:#252525;padding:1rem 0;box-shadow:
 /* Grid posts */
 .grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .post{background:#fff;border:1px solid #eef2ff;border-radius:16px;box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column}
-.post .cover{aspect-ratio:16/9;background:#e6eefc}
-.post .content{padding:1rem;display:flex;flex-direction:column;gap:.4rem}
+.post .cover {
+  aspect-ratio: 16/9;
+  background: var(--cover-img, #e6eefc) center/cover no-repeat; /* 🔹 imagen dinámica o color celeste por defecto */
+  border-bottom: 1px solid #eef2ff;
+  transition: transform 0.3s ease;
+}
+
+/* Pequeña animación al pasar el mouse */
+.post:hover .cover {
+  transform: scale(1.02);
+}
+
 .post h3{color:var(--text-primary)}
 .meta{font-size:.85rem;color:#6b7280}
 .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.2rem}
@@ -56,15 +68,174 @@ header{background:rgba(255,255,255,.95);color:#252525;padding:1rem 0;box-shadow:
 .btn:hover{background:var(--secondary-color)}
 
 /* Modal */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;padding:1rem}
-.modal.show{display:flex}
-.modal-dialog{background:#fff;max-width:760px;width:100%;border-radius:16px;box-shadow:var(--shadow-lg);padding:1rem 1.2rem}
-.modal-close{background:transparent;border:none;font-size:1.6rem;float:right;cursor:pointer}
-.modal-meta{color:#6b7280;font-size:.9rem;margin:.25rem 0 .6rem}
-.modal-actions{margin-top:.6rem}
+/* Fondo oscuro detrás del modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+/* Mostrar modal */
+.modal.show {
+  display: flex;
+}
+
+/* Contenedor principal */
+.modal-dialog {
+  background: #fff;
+  max-width: 760px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  padding: 1.2rem 1.4rem;
+  max-height: 90vh;           /* 🔹 límite de altura del modal */
+  overflow-y: auto;           /* 🔹 permite desplazarse verticalmente */
+  position: relative;
+}
+
+/* Botón cerrar */
+.modal-close {
+  position: absolute;
+  top: .6rem;
+  right: .8rem;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+/* Autor y contenido */
+#modalAuthor {
+  font-style: italic;
+  color: #555;
+  margin-bottom: .5rem;
+}
+
+#modalContent p {
+  margin-bottom: .8rem;
+  line-height: 1.6;
+}
+/* ==== ESTILOS PARA ARTÍCULOS EN EL MODAL ==== */
+#modalContent {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  line-height: 1.8;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+}
+
+/* Títulos dentro del contenido */
+#modalContent h4 {
+  color: var(--accent-color, #0077b6);
+  font-size: 1.15rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+  border-left: 4px solid var(--accent-color, #0077b6);
+  padding-left: 0.5rem;
+}
+
+/* Párrafos */
+#modalContent p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Listas */
+#modalContent ul {
+  list-style: none;
+  margin: 0.5rem 0 1.2rem 0;
+  padding: 0;
+}
+
+#modalContent li {
+  background: #f3f9ff;
+  border-left: 4px solid var(--accent-color, #0077b6);
+  margin-bottom: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+/* Agregar icono decorativo */
+#modalContent li::before {
+  content: "🌿";
+  font-size: 1rem;
+}
+
+/* Texto resaltado */
+#modalContent strong {
+  color: #005f73;
+}
+
+/* Cita o frases en cursiva */
+#modalContent em {
+  color: #0077b6;
+  font-style: italic;
+}
+
+/* Imagen de portada (si el post tiene cover) */
+.modal-dialog::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  background: var(--cover-img) center/cover no-repeat;
+  margin-bottom: 1rem;
+}
+
+/* Scroll más suave en el modal */
+.modal-dialog {
+  scroll-behavior: smooth;
+}
+
+
 
 /* FAQ */
 .faq details{background:#fff;border:1px solid #eef2ff;border-radius:12px;padding:.8rem 1rem;margin:.5rem 0}
+.back-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--bg-dark, #222);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  z-index: 10000;
+}
+
+.back-btn:hover {
+  background-color: var(--secondary-color, #3b82f6);
+  transform: scale(1.05);
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 600px) {
+  .back-btn {
+    bottom: 15px;
+    left: 15px;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
 
 /* Responsive */
 @media (max-width:992px){.grid-cards{grid-template-columns:repeat(2,1fr)}}
@@ -76,5 +247,5 @@ footer{background:var(--bg-dark);color:#fff;padding:3rem 0;text-align:center;mar
 .footer-left{text-align:left}
 .social-icon{width:100px;height:auto;margin-top:10px}
 .footer-center{display:flex;justify-content:center;align-items:center;height:100%}
-.footer-center .heart-shape{width:200px;height:200px;background-image:url('../IMAGENESCU/slogan.png');background-size:cover;background-position:center;border-radius:50%}
+.footer-center .heart-shape{width:200px;height:200px;background-image:url('../../IMAGENESCU/slogan.png');background-size:cover;background-position:center;border-radius:50%}
 .footer-bottom{text-align:center;font-size:.8rem;color:#bbb;margin-top:20px}

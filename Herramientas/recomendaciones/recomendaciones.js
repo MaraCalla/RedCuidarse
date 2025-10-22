@@ -1,87 +1,42 @@
 // ===== Libros =====
 const BOOKS = [
   {
-    titulo: "Hábitos Atómicos",
-    autor: "James Clear",
-    cover: "", // ../IMAGENESCU/libro1.jpg
-    resumen: "Cómo pequeñas mejoras diarias generan cambios notables.",
-    online: "https://www.google.com/search?q=Hábitos+Atómicos+ebook",
-    fisico: "https://www.buscalibre.com.pe/",
+    titulo: "Mindset: La actitud del éxito",
+    autor: "Carol S. Dweck",
+    cover: '../../IMAGENESCU/mindset.jpg', // ../IMAGENESCU/libro1.jpg
+    resumen: "Si piensas que no eres bueno en muchas cosas o sientes que todo es un gran desafio que no podras superar, este libro es para ti.",
+    online: "https://www.youtube.com/watch?v=6MNyEk-15IIhttps://www.youtube.com/watch?v=_iU_Gv3oELU",
+    fisico: "https://www.buscalibre.pe/libro-mindset/9788416579167/p/47493050#",
   },
   {
     titulo: "El poder del ahora",
     autor: "Eckhart Tolle",
-    cover: "",
-    resumen: "Presencia y conciencia para reducir sufrimiento mental.",
-    online: "https://www.google.com/search?q=El+poder+del+ahora+ebook",
-    fisico: "https://www.buscalibre.com.pe/",
+    cover: "../../IMAGENESCU/ahora.jpeg",
+    resumen: "Estar presente conscientemente te puede ayudar a mejorar tu bienestar emocional.",
+    online: "https://www.youtube.com/watch?v=483bQyV-R08",
+    fisico: "https://www.buscalibre.pe/libro-el-poder-del-ahora/9786124463013/p/52099810#",
   },
   {
-    titulo: "Mindset",
-    autor: "Carol Dweck",
-    cover: "",
-    resumen: "Mentalidad fija vs de crecimiento y su impacto en la vida.",
-    online: "https://www.google.com/search?q=Mindset+ebook",
-    fisico: "https://www.buscalibre.com.pe/",
+    titulo: "Más Fuerte que nunca",
+    autor: "Brené Brown",
+    cover: "../../IMAGENESCU/fuerte.jpeg",
+    resumen: "Levantarse despues de sentir el fracaso es dificil, te invitamos a leer este libro.",
+    online: "https://www.youtube.com/watch?v=VaQsFG5KtMw",
+    fisico: "https://www.buscalibre.pe/libro-mas-fuerte-que-nunca/9786073900560/p/55148635",
   }
 ];
 
-// ===== Podcasts/YouTube (creators) =====
-const CREATORS = [
-  {
-    nombre: "Psicoeducación en 10'",
-    desc: "Videos cortos con conceptos clave de ansiedad, estrés y hábitos.",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ" // ← reemplaza por el video real
-  },
-  {
-    nombre: "Mindful Studio",
-    desc: "Meditaciones guiadas y respiraciones para principiantes.",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-  },
-  {
-    nombre: "Ciencia & Hábitos",
-    desc: "Entrevistas a expert@s sobre autocuidado basado en evidencia.",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-  }
-];
-
-// ===== Películas / Series =====
-const MOVIES = [
-  {
-    titulo: "Inside Out (Intensa-Mente)",
-    cover: "", // ../IMAGENESCU/insideout.jpg
-    resumen: "Una mirada amable a las emociones y su rol en la vida.",
-    ver: "https://www.justwatch.com/" // reemplaza con enlace directo si quieres
-  },
-  {
-    titulo: "Atypical (Serie)",
-    cover: "",
-    resumen: "Adolescente en el espectro y desafíos familiares/relacionales.",
-    ver: "https://www.justwatch.com/"
-  },
-  {
-    titulo: "The Pursuit of Happyness",
-    cover: "",
-    resumen: "Resiliencia, propósito y vínculos en tiempos difíciles.",
-    ver: "https://www.justwatch.com/"
-  }
-];
-
-// Refs generales
-const mainNav = document.getElementById("mainNav");
-const mobileToggle = document.getElementById("mobileToggle");
-
-// Libros
+// Refs y Carrusel para Libros
 const booksTrack = document.getElementById("booksTrack");
-const booksGrid = document.getElementById("booksGrid");
 const booksPrev = document.getElementById("booksPrev");
 const booksNext = document.getElementById("booksNext");
-let carouselIndex = 0;
+let booksCarouselIndex = 0;
 
-function bookCard(b){
+// Función para generar las cards de libros
+function bookCard(b) {
   return `
     <article class="card">
-      <div class="thumb" role="img" aria-label="${b.titulo}"></div>
+      <div class="thumb" style="background-image: url('${b.cover}');" role="img" aria-label="${b.titulo}"></div>
       <div class="body">
         <span class="badge">Libro</span>
         <h3>${b.titulo}</h3>
@@ -95,50 +50,146 @@ function bookCard(b){
     </article>
   `;
 }
-function renderBooks(){
-  booksTrack.innerHTML = BOOKS.map(bookCard).join("");
-  booksGrid.innerHTML = BOOKS.map(bookCard).join("");
-  updateCarousel();
-}
-function updateCarousel(){
-  const cardWidth = 280; // aproximado (dependerá del padding); puedes refinar con getBoundingClientRect
-  const gap = 16;
-  const offset = -(cardWidth + gap) * carouselIndex;
-  booksTrack.style.transform = `translateX(${offset}px)`;
-}
-booksPrev.addEventListener("click", ()=>{ carouselIndex = Math.max(0, carouselIndex-1); updateCarousel(); });
-booksNext.addEventListener("click", ()=>{ carouselIndex = Math.min(BOOKS.length-1, carouselIndex+1); updateCarousel(); });
 
-// Toggle catálogo / padlet
-const viewCatalog = document.getElementById("viewCatalog");
-const viewPadlet = document.getElementById("viewPadlet");
+// Función para renderizar los libros
+function renderBooks() {
+  booksTrack.innerHTML = BOOKS.map(bookCard).join("");  // Renderiza las cards de libros
+  updateBooksCarousel();  // Actualiza el carrusel
+}
+
+// Función para actualizar el carrusel de libros
+function updateBooksCarousel() {
+  const cardWidth = 280;  // Ajusta este valor según el tamaño de los libros
+  const gap = 16;  // Espaciado entre los libros
+  const offset = -(cardWidth + gap) * booksCarouselIndex;
+  booksTrack.style.transform = `translateX(${offset}px)`;  // Desplaza los libros
+}
+
+// Funciones para navegar en el carrusel de libros
+booksPrev.addEventListener("click", () => {
+  booksCarouselIndex = Math.min(BOOKS.length -1, booksCarouselIndex + 1);  // No permitir el índice por debajo de 0
+  updateBooksCarousel();
+});
+
+booksNext.addEventListener("click", () => {
+  booksCarouselIndex = Math.max(+1, booksCarouselIndex  -1);  // No permitir el índice superior al número de libros
+  updateBooksCarousel();
+});
+
+// Inicializa el renderizado de los libros
+renderBooks();
+const viewCatalogBtn = document.getElementById("viewCatalog");
+const viewPadletBtn = document.getElementById("viewPadlet");
 const librosCatalog = document.getElementById("librosCatalog");
 const librosPadlet = document.getElementById("librosPadlet");
 
-viewCatalog.addEventListener("click", ()=>{
-  viewCatalog.classList.add("active"); viewPadlet.classList.remove("active");
-  librosCatalog.hidden = false; librosPadlet.hidden = true;
-});
-viewPadlet.addEventListener("click", ()=>{
-  viewPadlet.classList.add("active"); viewCatalog.classList.remove("active");
-  librosCatalog.hidden = true; librosPadlet.hidden = false;
+// Función para mostrar el catálogo
+viewCatalogBtn.addEventListener("click", () => {
+  librosCatalog.hidden = false;
+  librosPadlet.hidden = true;
+  viewCatalogBtn.classList.add("active");
+  viewPadletBtn.classList.remove("active");
 });
 
-// Creators
-const creatorsGrid = document.getElementById("creatorsGrid");
-function renderCreators(){
-  creatorsGrid.innerHTML = CREATORS.map(c=>`
+// Función para mostrar el Padlet
+viewPadletBtn.addEventListener("click", () => {
+  librosCatalog.hidden = true;
+  librosPadlet.hidden = false;
+  viewPadletBtn.classList.add("active");
+  viewCatalogBtn.classList.remove("active");
+});
+
+// ===== Podcasts/YouTube (creators) =====
+const CREATORS = [
+  {
+    nombre: "Farid Dieck",
+    desc: "Psicólogo y conferencista. Videos sobre psicología y desarrollo personal.",
+    embed: "https://www.youtube.com/embed/y7gFKG4vL_w?si=90812Kh8WhxPY-UA"
+  },
+  {
+    nombre: "Gabriel Rolón",
+    desc: "Psicoanalista y escritor. Reflexiones sobre las emociones y la mente humana.",
+    embed: "https://www.youtube.com/embed/ITovsJg-q5c?si=ABkOT9xmcA1x0Ahc"
+  },
+  {
+    nombre: "Aprendamos Juntos",
+    desc: "Videos educativos sobre temas de bienestar y desarrollo personal.",
+    embed: "https://www.youtube.com/embed/5YJ_t41Z440?si=ThaMzAQWo_x96k6R"
+  },
+  {
+    nombre: "ClaudiaNicolasa",
+    desc: "Psicóloga con temas de autoconocimiento y bienestar emocional.",
+    embed: "https://www.youtube.com/embed/DfGIIuguRM8?si=xECuXL5myD6Jqi-8"
+  }
+];
+
+// Refs y Carrusel para Podcasts
+const creatorsTrack = document.getElementById("creatorsTrack");
+const creatorsPrev = document.getElementById("creatorsPrev");
+const creatorsNext = document.getElementById("creatorsNext");
+let creatorsCarouselIndex = 0;
+
+// Función para renderizar los creadores de contenido
+function renderCreators() {
+  creatorsTrack.innerHTML = CREATORS.map((creator) => `
     <article class="creator">
       <div class="embed">
-        <iframe width="100%" height="100%" src="${c.embed}" title="${c.nombre}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" loading="lazy" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="${creator.embed}" title="${creator.nombre}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="body">
-        <h3>${c.nombre}</h3>
-        <p>${c.desc}</p>
+        <h3>${creator.nombre}</h3>
+        <p>${creator.desc}</p>
       </div>
     </article>
   `).join("");
+  updateCreatorsCarousel();  // Actualizamos el carrusel de creadores
 }
+
+// Función para actualizar el carrusel de creadores
+function updateCreatorsCarousel() {
+  const cardWidth = 580;  // Ajusta este valor según el tamaño de tu iframe
+  const gap = 20;  // Espaciado entre los items
+  const offset = -(cardWidth + gap) * creatorsCarouselIndex;
+  creatorsTrack.style.transform = `translateX(${offset}px)`;  // Desplaza los videos
+}
+
+// Funciones para navegar en el carrusel de creadores
+creatorsPrev.addEventListener("click", () => {
+  creatorsCarouselIndex = Math.max(0, creatorsCarouselIndex - 1);  // No permitir el índice por debajo de 0
+  updateCreatorsCarousel();
+});
+
+creatorsNext.addEventListener("click", () => {
+  creatorsCarouselIndex = Math.min(CREATORS.length - 1, creatorsCarouselIndex + 1);  // No permitir el índice superior al número de creadores
+  updateCreatorsCarousel();
+});
+
+// Inicializa el renderizado de los creadores
+renderCreators();
+
+// Mobile + smooth anchors
+mobileToggle?.addEventListener("click", ()=> {
+  const isOpen = mainNav.classList.toggle("active");
+  mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener("click", (e) => {
+    const target = document.querySelector(a.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (mainNav.classList.contains("active")) {
+        mainNav.classList.remove("active");
+        mobileToggle.setAttribute("aria-expanded", "false");
+      }
+    }
+  });
+});
+
+// Init
+renderBooks();
+renderCreators();
+
 
 // Spotify: actualizar embed desde url
 const spotifySet = document.getElementById("spotifySet");
@@ -198,3 +249,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 // Init
 renderBooks();
 renderCreators();
+// Botón "Volver atrás"
+document.getElementById("backButton")?.addEventListener("click", () => {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "index.html"; // en caso de que no haya historial
+  }
+});
