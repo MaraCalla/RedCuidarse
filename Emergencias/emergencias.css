@@ -205,32 +205,3 @@ footer a:hover {
     height: 100px;
   }
 }
-
-#google_translate_element {
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 9999;
-  background: #fff;
-  border-radius: 8px;
-  padding: 4px 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  font-size: 0.9rem;
-}
-
-.goog-te-gadget {
-  font-family: 'Poppins', sans-serif !important;
-  color: #333 !important;
-}
-
-.goog-te-gadget select {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 4px 6px;
-  cursor: pointer;
-}
-
-body > .skiptranslate {
-  display: none;
-}
