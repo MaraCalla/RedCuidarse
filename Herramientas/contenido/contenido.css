@@ -250,19 +250,55 @@ header{background:rgba(255,255,255,.95);padding:1rem 0;box-shadow:0 2px 20px rgb
 }
 
 
-/* Footer */
-footer{background:var(--bg-dark);color:#fff;padding:3rem 0;text-align:center;margin-top:2.2rem}
-.footer-top{display:flex;justify-content:space-between;margin-bottom:2rem;padding:0 2rem}
-.footer-left,.footer-center,.footer-right{flex:1;padding:0 20px;text-align:center}
-.footer-left{text-align:left}
-.social-icon{width:100px;height:auto;margin-top:10px}
-.footer-center{display:flex;justify-content:center;align-items:center;height:100%}
-.footer-center .heart-shape{width:200px;height:200px;background-image:url('/IMAGENESCU/slogan.png');background-size:cover;background-position:center;border-radius:50%}
-.footer-bottom{text-align:center;font-size:.8rem;color:#bbb;margin-top:20px}
 
-/* Responsive */
-@media (max-width:992px){.grid-cards{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.grid-cards{grid-template-columns:1fr}}
+.footer-center .heart-shape {
+  width: 180px;
+  height: 180px;
+  background-image: url('../../IMAGENESCU/slogan.png');
+  background-size: contain; /* Se ajusta sin recortar */
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.footer-center .heart-shape:hover {
+  transform: scale(1.05);
+}
+
+/* Parte inferior */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 1.5rem;
+}
+
+/* 📱 Adaptación para móviles */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer-center .heart-shape {
+    width: 120px;   /* más pequeña en móvil */
+    height: 120px;
+  }
+
+  .social-icon {
+    width: 60px;   /* iconos más compactos */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-center .heart-shape {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 #google_translate_element {
   position: fixed;
   top: 15px;

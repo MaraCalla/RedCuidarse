@@ -111,18 +111,10 @@ header {
 }
 
 /* Hero */
-.hero.mini {
-  background: var(--gradient-primary);
-  padding: 60px 0;
-  color: #fff;
-  text-align: center;
-}
+.hero.mini{background:var(--gradient-primary);padding:60px 0;color:#fff;text-align:center;position:relative;overflow:hidden}
+.hero.mini::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%, transparent 70%);animation:rotate 20s linear infinite}
+@keyframes rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
 
 /* Sección base */
 .seccion {
@@ -421,88 +413,55 @@ header {
   transform: scale(1.05);
 }
 
-/* Footer */
-footer {
-  background: var(--bg-dark);
-  color: #fff;
-  padding: 3rem 0;
-  text-align: center;
-  margin-top: 2.2rem;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-  padding: 0 2rem;
-}
-
-.footer-left, .footer-center, .footer-right {
-  flex: 1;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.footer-left {
-  text-align: left;
-}
-
-.social-icon {
-  width: 100px;
-  height: auto;
-  margin-top: 10px;
-}
-
-.footer-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
 
 .footer-center .heart-shape {
-  width: 200px;
-  height: 200px;
-  background-image: url('/IMAGENESCU/slogan.png');
-  background-size: cover;
+  width: 180px;
+  height: 180px;
+  background-image: url('../../IMAGENESCU/slogan.png');
+  background-size: contain; /* Se ajusta sin recortar */
+  background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
+.footer-center .heart-shape:hover {
+  transform: scale(1.05);
+}
+
+/* Parte inferior */
 .footer-bottom {
   text-align: center;
-  font-size: .8rem;
-  color: #bbb;
-  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 1.5rem;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .grid-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .grid-cards {
-    grid-template-columns: 1fr;
-  }
-
-  /* Carrusel ajuste para móvil */
-  #creatorsTrack {
+/* 📱 Adaptación para móviles */
+@media (max-width: 768px) {
+  .footer-top {
     flex-direction: column;
-    gap: 10px;
+    text-align: center;
+    gap: 1.5rem;
   }
 
-  .creator {
-    width: 100%;
+  .footer-center .heart-shape {
+    width: 120px;   /* más pequeña en móvil */
+    height: 120px;
   }
 
-  /* Para los libros en pantallas más pequeñas */
-  .card {
-    width: 100%;
+  .social-icon {
+    width: 60px;   /* iconos más compactos */
   }
 }
+
+@media (max-width: 480px) {
+  .footer-center .heart-shape {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 #google_translate_element {
   position: fixed;
   top: 15px;

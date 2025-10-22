@@ -273,86 +273,107 @@ nav {
 
 /* Footer */
 footer {
-    background: #004d79;
-    color: white;
-    padding: 3rem 0;
-    text-align: center;
+  background: #004d79;
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
 }
 
+/* Enlaces del footer */
 footer a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    margin: 0 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 1rem;
 }
 
 footer a:hover {
-    color: #14b8a6;
+  color: #14b8a6;
 }
 
+/* Contenedor superior */
 .footer-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
 }
 
-.footer-left {
-    flex: 1;
-    padding: 0 20px;
-    text-align: left;
-}
-.social-icon {
-    width: 100px;  /* Tamaño más pequeño para el ícono social */
-    height: auto; /* Mantiene la proporción original de la imagen */
-    margin-top: 10px;
-}
-
-
-.footer-center {
-    flex: 1;
-    padding: 0 20px;
-    text-align: center;
-}
-
+/* Columnas del footer */
+.footer-left,
+.footer-center,
 .footer-right {
-    flex: 1;
-    padding: 0 20px;
-    text-align: center;
+  flex: 1;
+  padding: 1rem;
+  min-width: 260px; /* Asegura que no se colapsen demasiado */
+  box-sizing: border-box;
 }
-/* Asegurándote de que el contenedor principal esté configurado para centrar el contenido */
+
+/* Iconos sociales */
+.social-icon {
+  width: 80px;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Contenedor de la imagen central */
 .footer-center {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 100%; /* Asegura que ocupe todo el espacio disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* Imagen (slogan o logo) */
 .footer-center .heart-shape {
-    width: 200px;
-    height: 200px;
-    background-image: url('../IMAGENESCU/slogan.png');
-    background-size: cover; /* Asegura que la imagen cubra todo el área */
-    background-position: center; /* Centra la imagen */
-    border-radius: 50%; /* Aplica un borde redondeado para hacerla circular */
+  width: 180px;
+  height: 180px;
+  background-image: url('../IMAGENESCU/slogan.png');
+  background-size: contain; /* Se ajusta sin recortar */
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
+.footer-center .heart-shape:hover {
+  transform: scale(1.05);
+}
 
+/* Parte inferior */
 .footer-bottom {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #bbb;
-    margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 1.5rem;
 }
-@media (max-width: 768px) {
-    .footer-top {
-        flex-direction: column;  /* Apila las columnas en pantallas pequeñas */
-        text-align: center;
-    }
 
-    .footer-left, .footer-right {
-        margin-bottom: 1rem; /* Añade espacio entre las columnas */
-    }
+/* 📱 Adaptación para móviles */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer-center .heart-shape {
+    width: 120px;   /* más pequeña en móvil */
+    height: 120px;
+  }
+
+  .social-icon {
+    width: 60px;   /* iconos más compactos */
+  }
 }
+
+@media (max-width: 480px) {
+  .footer-center .heart-shape {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 
 #google_translate_element {
   position: fixed;

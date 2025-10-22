@@ -228,18 +228,109 @@ header{background:rgba(255,255,255,.95);color:#252525;padding:1rem 0;box-shadow:
 }
 
 
-/* Responsive */
-@media (max-width:992px){.grid-cards{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.grid-cards{grid-template-columns:1fr}}
-/* Footer (igual que el resto) */
-footer{background:var(--bg-dark);color:#fff;padding:3rem 0;text-align:center;margin-top:2.2rem}
-.footer-top{display:flex;justify-content:space-between;margin-bottom:2rem;padding:0 2rem}
-.footer-left,.footer-center,.footer-right{flex:1;padding:0 20px;text-align:center}
-.footer-left{text-align:left}
-.social-icon{width:100px;height:auto;margin-top:10px}
-.footer-center{display:flex;justify-content:center;align-items:center;height:100%}
-.footer-center .heart-shape{width:200px;height:200px;background-image:url('../../IMAGENESCU/slogan.png');background-size:cover;background-position:center;border-radius:50%}
-.footer-bottom{text-align:center;font-size:.8rem;color:#bbb;margin-top:20px}
+/* Footer */
+footer {
+  background: #004d79;
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+/* Enlaces del footer */
+footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 1rem;
+}
+
+footer a:hover {
+  color: #14b8a6;
+}
+
+/* Contenedor superior */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
+}
+
+/* Columnas del footer */
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  padding: 1rem;
+  min-width: 260px; /* Asegura que no se colapsen demasiado */
+  box-sizing: border-box;
+}
+
+/* Iconos sociales */
+.social-icon {
+  width: 80px;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Contenedor de la imagen central */
+.footer-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen (slogan o logo) */
+.footer-center .heart-shape {
+  width: 180px;
+  height: 180px;
+  background-image: url('../../IMAGENESCU/slogan.png');
+  background-size: contain; /* Se ajusta sin recortar */
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.footer-center .heart-shape:hover {
+  transform: scale(1.05);
+}
+
+/* Parte inferior */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 1.5rem;
+}
+
+/* 📱 Adaptación para móviles */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer-center .heart-shape {
+    width: 120px;   /* más pequeña en móvil */
+    height: 120px;
+  }
+
+  .social-icon {
+    width: 60px;   /* iconos más compactos */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-center .heart-shape {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 #google_translate_element {
   position: fixed;
   top: 15px;
