@@ -244,8 +244,14 @@ nav {
 }
 
 
-
-
+@media (max-width: 768px) {
+  .back-btn {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    bottom: 15px;
+    left: 15px;
+  }
+}
 /* Footer */
 footer {
   background: #004d79;
@@ -300,12 +306,12 @@ footer a:hover {
   align-items: center;
 }
 
-/* Imagen (slogan o logo) */
+/* Imagen (slogan o logo redondo del centro) */
 .footer-center .heart-shape {
   width: 180px;
   height: 180px;
   background-image: url('../IMAGENESCU/slogan.png');
-  background-size: contain; /* Se ajusta sin recortar */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
@@ -314,6 +320,15 @@ footer a:hover {
 
 .footer-center .heart-shape:hover {
   transform: scale(1.05);
+}
+
+/* Imagen de organización aliada (Kectil) */
+.organization-logo {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain; /* Mantiene proporciones sin recortar */
+  margin-top: 10px;
 }
 
 /* Parte inferior */
@@ -333,22 +348,27 @@ footer a:hover {
   }
 
   .footer-center .heart-shape {
-    width: 120px;   /* más pequeña en móvil */
-    height: 120px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .organization-logo {
+    max-width: 100%;
   }
 
   .social-icon {
-    width: 70px;   /* iconos más compactos */
+    width: 70%;
   }
 }
 
+/* 📱 Móviles pequeños */
 @media (max-width: 480px) {
   .footer-center .heart-shape {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .organization-logo {
+    max-width: 100%
   }
 }
-
-
-
-

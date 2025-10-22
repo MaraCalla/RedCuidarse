@@ -108,12 +108,74 @@ header{background:rgba(255,255,255,.95);color:#252525;padding:1rem 0;box-shadow:
   transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+  .back-btn {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    bottom: 15px;
+    left: 15px;
+  }
+}
+/* Footer */
+footer {
+  background: #004d79;
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+}
 
+/* Enlaces del footer */
+footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 0 1rem;
+}
+
+footer a:hover {
+  color: #14b8a6;
+}
+
+/* Contenedor superior */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
+}
+
+/* Columnas del footer */
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  padding: 1rem;
+  min-width: 260px; /* Asegura que no se colapsen demasiado */
+  box-sizing: border-box;
+}
+
+/* Iconos sociales */
+.social-icon {
+  width: 80px;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Contenedor de la imagen central */
+.footer-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen (slogan o logo redondo del centro) */
 .footer-center .heart-shape {
   width: 180px;
   height: 180px;
   background-image: url('../IMAGENESCU/slogan.png');
-  background-size: contain; /* Se ajusta sin recortar */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
@@ -122,6 +184,15 @@ header{background:rgba(255,255,255,.95);color:#252525;padding:1rem 0;box-shadow:
 
 .footer-center .heart-shape:hover {
   transform: scale(1.05);
+}
+
+/* Imagen de organización aliada (Kectil) */
+.organization-logo {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain; /* Mantiene proporciones sin recortar */
+  margin-top: 10px;
 }
 
 /* Parte inferior */
@@ -141,18 +212,27 @@ header{background:rgba(255,255,255,.95);color:#252525;padding:1rem 0;box-shadow:
   }
 
   .footer-center .heart-shape {
-    width: 120px;   /* más pequeña en móvil */
-    height: 120px;
+    width: 130px;
+    height: 130px;
+  }
+
+  .organization-logo {
+    max-width: 100%;
   }
 
   .social-icon {
-    width: 60px;   /* iconos más compactos */
+    width: 70%;
   }
 }
 
+/* 📱 Móviles pequeños */
 @media (max-width: 480px) {
   .footer-center .heart-shape {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .organization-logo {
+    max-width: 100%
   }
 }
